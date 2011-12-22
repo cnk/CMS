@@ -1,4 +1,12 @@
 Cms::Application.routes.draw do
+
+
+
+  root :to => 'site#show'
+  # Default route: let CMS catch all other requests
+  match '*url_parts' => "site#show"
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
