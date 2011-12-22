@@ -1,0 +1,74 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+
+## Installation notes
+
+Using rvm with ruby 1.9.2
+Created a new gemset: cms 
+Installed rails 3.1.3 with cucumber-rails and rspec-rails
+Generated a new app:
+    $ rails new cms -d postgresql -T --old-style-hash
+
+
+
+HTML5
+
+Decided to use rails-boilerplate to get HTML5 Boilerplate
+integration. html5-boilerplate is more popular but pushes you to use
+HAML which I have never really warmed up to. 
+
+Per the instructions at https://github.com/khelben/rails-boilerplate
+I added "gem 'rails-boilerplate'" to my Gemfile and reran bundle
+install. Trying to run "rails g boilerplate:install" gave an error
+complaining about not having a Javascript runtime:
+
+  gems/execjs-1.2.13/lib/execjs/runtimes.rb:47:in `autodetect': 
+  Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs 
+  for a list of available runtimes. (ExecJS::RuntimeUnavailable)
+
+Decided to use rubyracer as I had for the Ticket tracker app. Also
+added the other gems I was using for those exercises:
+
+  group :assets do
+    gem 'sass-rails',   '~> 3.1.5'
+    gem 'coffee-rails', '~> 3.1.1'
+    gem 'uglifier', '>= 1.0.3'
+    # JavaScript executable - Google's V8 as a ruby gem
+    gem 'therubyracer'
+  end
+
+  gem 'jquery-rails'
+  gem 'rails-boilerplate'
+
+  group :test, :development do
+    gem 'rspec-rails', '~> 2.5'
+  end
+
+  group :test do
+    gem 'cucumber-rails'
+    gem 'capybara'
+    gem 'database_cleaner'
+    gem 'shoulda-matchers'
+    gem 'factory_girl_rails'
+  end
+
+$ rails g boilerplate:install
+    conflict  app/views/layouts/application.html.erb
+Overwrite /home/cnk/rails/cms/app/views/layouts/application.html.erb? (enter "h" for help) [Ynaqdh] y
+       force  app/views/layouts/application.html.erb
+      insert  app/assets/stylesheets/application.css
+      insert  app/assets/javascripts/application.js
+    conflict  public/robots.txt
+Overwrite /home/cnk/rails/cms/public/robots.txt? (enter "h" for help) [Ynaqdh] y
+       force  public/robots.txt
+      create  public/crossdomain.xml
+      create  public/humans.txt
+    conflict  public/favicon.ico
+Overwrite /home/cnk/rails/cms/public/favicon.ico? (enter "h" for help) [Ynaqdh] y
+       force  public/favicon.ico
+      create  public/apple-touch-icon-114x114-precomposed.png
+      create  public/apple-touch-icon-57x57-precomposed.png
+      create  public/apple-touch-icon-72x72-precomposed.png
+      create  public/apple-touch-icon-precomposed.png
+      create  public/apple-touch-icon.png
