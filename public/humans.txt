@@ -1,0 +1,14 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Senior Applications Developer: Cynthia Kiser
+  Web Developer: Dan Tabata
+  Designer: Gail Anderson
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, HTML5 Boilerplate
+  Software: Ruby on Rails 3.1 (with rails-boilerplate gem)
+
