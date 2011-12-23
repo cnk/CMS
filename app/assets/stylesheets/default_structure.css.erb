@@ -1,0 +1,318 @@
+/* structural css elements*/
+
+#border {
+    margin:         0 auto;
+    text-align:     left;
+    width:          960px;
+    border:         solid #d8d8d8 1px;
+    margin-top:     10px;
+}
+#bannerprint {
+    display:        none;
+}
+
+/* Header */
+
+#page_header {
+    background-image:    url(<%= asset_path 'headerbg.gif' %>);
+    background-position: top;
+    background-repeat:   no-repeat;
+    height:              100px;
+    width:               100%;
+}
+
+/* DANT - height: 30px added to fix 2px gap below header link in IE7...the extra space appeared as a gap between the orange banner and the homepage images and search elements */
+#header_link, header_link a {
+    margin:         0;
+    padding:        0;
+    height:         30px;
+}
+#bannerprint {
+	display: none;
+}
+
+/* Content */
+#content {
+    width:          583px;
+    margin-top:     25px;
+    margin-bottom:  20px;
+    float:          right;
+    padding-right:  5px;
+}
+
+
+
+/* Left Sidebar with site name and navigation links */
+#left {
+    margin-top:     25px;
+    padding-top:    25px;
+    float:          left;
+    text-align:     left;
+    position:       relative;
+    width:          370px;
+    background-image:    url(<%= asset_path 'logo_transparent.jpg' %>);
+    background-repeat:   no-repeat;
+    background-position: 80px 115px;
+}
+
+#sitename {
+    font-size:      1.6em;
+    margin-bottom:  20px;
+    margin-top:     25px;
+    margin-left:    5px;
+}
+#sitename a {
+    color:          #333333;
+    font-weight:    normal;
+    text-decoration: none;
+}
+
+nav .nav_1, nav .nav_0 {
+    padding:        10px 20px 10px 14px;
+    background:          url(<%= asset_path "border.gif" %>);
+    background-repeat:   no-repeat;
+    background-position: 15px 0px;
+}
+nav .nav_2 {
+    padding:        10px 20px 10px 30px;
+}
+nav .nav_3 {
+    padding:        10px 20px 10px 46px;
+}
+nav .nav_4 {
+    padding:        10px 20px 10px 40px;
+}
+nav .nav_5 {
+    padding:        10px 20px 10px 50px;
+}
+nav a {
+    text-decoration: none;
+    font-weight:     bold;
+    color:           #c60;
+}
+
+/* Prop Clear Hack */
+.prop {
+    height:         300px;
+    width:          1px;
+    float:          right;
+}
+
+/* Footer */
+footer {
+    clear:               both;
+    width:               100%;
+    background-color:    #fff;
+    background-image:    url(<%= asset_path 'footerbg.gif' %>);
+    background-position: top;
+    background-repeat:   no-repeat;
+    margin-top:          30px;
+    padding-top:         15px;
+    padding-bottom:      8px;
+} 
+footer #logo_small {
+    float:          left;
+    margin-top:     10px;
+    margin-right:   5px;
+    margin-left:    3px;
+}
+footer p { 
+    line-height:    1.1em;
+}
+
+
+/* News section on home page */
+/* DANT - overflow: hidden and _height: 1% added to fix IE6 and 7 problem with box model height rendering */
+#news {
+    margin-top:          25px;
+    padding-bottom:      15px;
+    background-color:    #f7f6f6;
+    border:              solid 1px #ccc;
+    border-right:        none;
+    clear:               both;
+    margin-left:         1px;
+    margin-right:        1px;
+    overflow:            hidden;
+    _height:             1%;
+}
+#news_none {
+    border-right:        none;
+}
+.news {
+    width:               250px;
+    margin-left:         20px;
+    float:               left;
+}
+.news p {
+    line-height:         1.3em;
+}
+.news_row_title {
+    width:               520px;
+    margin-left:         20px;
+    float:               left;
+}
+.news_row {
+    width:               250px;
+    margin-left:         20px;
+    margin-top:          -10px;
+    float:               left; 
+}
+.news_row p {
+    line-height:         1.3em;
+}
+
+
+/* Misc. admin *******************************************************************/
+
+.in_place_editor_field { 
+  background-color: #FFD6BA;
+}
+
+.hp-photo-choice { 
+  margin: 20px 0 20px 0;
+}
+
+.thumbnail-gallery { 
+  margin: 10px 20px 10px 0;
+}
+
+.thumbnail { 
+  display: block;
+  float: left;
+  margin: 0 0 10px 0;
+}
+
+.thumbnail img { 
+  margin: 5px 5px 0 0;
+}
+
+
+/* news releases *******************************************************************/
+
+.release_body {
+  line-height: 1.7;
+  margin: 1em 0 1em 0;
+}
+
+.release_date {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* events *********************************************/ 
+
+/* div that encloses the entire event listing  */ 
+.event {
+  padding-bottom: 0.7em; 
+}
+
+.event_location { 
+  font-style: normal;
+}
+
+.event_start { 
+  font-style: italic;
+  font-weight: bold;
+}
+
+.speaker {
+  font-weight: bold;
+}
+
+.event_title {
+  font-weight: bold;
+}
+
+.event_body {
+  margin: 1em 0 1em 0;
+}
+
+/* comments *********************************************/ 
+.comment {
+    background: #eee;
+    padding: 10px 0;
+    margin: 10px 10px 10px 0;
+}
+
+.comment p {
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+
+/* Rails stuff *******************************************************************/
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* for admin site map */
+#draggable_link_tree ul {  
+  padding-top: 4px; 
+  padding-bottom: 2px; 
+  border: 1px solid #ccf;
+}
+
+#draggable_link_tree li { 
+  border: 1px solid #fcc;
+}
+
+.login_only {
+	font-size: .9em;
+	font-weight: bold;
+	color: #f00;
+}
+
+.campus_only {
+	font-size: .9em;
+	font-weight: bold;
+	color: #ff8c00;
+}
+
+/* Bulk upload */
+div#bulk_upload_container {
+  margin: 0px 10px;
+}
+
+div#bulk_upload_button {
+  background-color: #ffc88d;
+  border: solid 1px  #ff9a22;
+  display: inline;
+  padding: 2px;
+}
+
+div#divFileProgressContainer {
+  height: 75px;
+}

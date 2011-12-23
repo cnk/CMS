@@ -1,0 +1,125 @@
+/* Global */
+body {
+    font-family:    verdana, tahoma,"lucinda grande", helvetica, sans-serif;
+    font-size:      0.7em;
+    text-align:     center;
+    color:          #333;
+    padding-bottom: 100px;
+}
+p {
+    line-height:    1.7;
+    margin-bottom:  15px;
+}
+/* TinyMCE wants to wrap everything in paragraph tags - even content in table cells. 
+   We need to override the line height and bottom margin to close up the extra space if we are in a td */
+
+td {
+    vertical-align: top;
+}
+
+td p {
+    line-height:    1.2;
+    margin-bottom:  0px;
+}
+
+h1 {
+    font-size:      1.3em;
+    margin-bottom:  20px;
+    margin-top:     25px;
+}
+h2 {
+    font-size:      1.0em;
+    margin-bottom:  5px;
+    font-weight:    bold;
+    margin-top:     10px;
+}
+h3 {
+    font-size:      0.9em;
+    margin-bottom:  5px;
+    font-weight:    bold;
+    margin-top:     10px;
+}
+h4 {
+    font-size:      0.9em;
+    margin-bottom:  5px;
+    font-weight:    bold;
+    font-style:     italic;
+    margin-top:     10px;
+}
+h5 {
+    font-size:      1.0em;
+    margin-bottom:  5px;
+    font-weight:    normal;
+    margin-top:     10px;
+}
+h6 {
+    font-size:      1.0em;
+    margin-bottom:  5px;
+    font-weight:    normal;
+    font-style:     italic;
+    margin-top:     10px;
+}
+
+a {
+    color:          #cc6600;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a img {
+    border:         none;
+}
+
+blockquote {
+    padding-left:   40px;
+    padding-right:  40px;
+    padding-bottom: 10px;
+}
+
+ul {
+    margin-top:     0;
+}
+
+pre, code {
+    width:          99%;
+    overflow:       auto;
+    padding-bottom: 1.5em;
+    overflow-y:     hidden;
+}
+
+#pagehead {
+    color:          #104070;
+    font-size:      1.2em;
+    padding-top:    30px;
+    margin-bottom:  15px;
+    font-weight:    bold;
+    margin-top:     10px;
+}
+.pagehead-color {
+    color:          #104070;
+}
+
+/* Styles for events */
+h3.event_date {
+    font-style:     italic;
+    font-weight:    bold;
+}
+h3.event_title {
+    font-weight:    bold;
+    margin-top:     0;
+}
+
+/* Styles for news */
+#news h3 a {
+	color: #333;
+}
+#news h3 a:hover {
+	border-bottom: 1px solid #cc6600;
+	text-decoration: none;
+}
+
+.page_break_before {
+	display: none;
+}
+
