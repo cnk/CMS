@@ -72,3 +72,16 @@ Overwrite /home/cnk/rails/cms/public/favicon.ico? (enter "h" for help) [Ynaqdh] 
       create  public/apple-touch-icon-72x72-precomposed.png
       create  public/apple-touch-icon-precomposed.png
       create  public/apple-touch-icon.png
+
+Got replacement Apple Touch icons for Caltech from Dan - and a link to
+information on using them:
+http://developer.apple.com/library/safari/#documentation/appleapplications/reference/safariwebcontent/ConfiguringWebApplications/ConfiguringWebApplications.html
+
+Built 2 default stylesheets - one for structural elements and one for
+styles that can be used within the WYSIWYG editor too. And edited the
+application.css manifest to include both of them explicitly instead of
+using require_tree. 
+
+Removed 'require_tree .' from app/assets/javascripts/application.js so
+I can include the WYWIWYG editor javascript only on admin pages.
+
