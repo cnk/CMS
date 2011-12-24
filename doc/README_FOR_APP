@@ -2,7 +2,7 @@ Use this README file to introduce your application and point to useful places in
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
 
 
-## Installation notes
+######## Installation notes #################
 
 Using rvm with ruby 1.9.2
 Created a new gemset: cms 
@@ -12,7 +12,7 @@ Generated a new app:
 
 
 
-HTML5
+################ HTML5 ######################
 
 Decided to use rails-boilerplate to get HTML5 Boilerplate
 integration. html5-boilerplate is more popular but pushes you to use
@@ -84,4 +84,7 @@ using require_tree.
 
 Removed 'require_tree .' from app/assets/javascripts/application.js so
 I can include the WYWIWYG editor javascript only on admin pages.
+
+
+############# Authentication  ###############
 

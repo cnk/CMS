@@ -35,9 +35,7 @@ nav, #header_link, #search_wrapper, .prop, .clear {
 #sitename {
     margin: 0;
 }
-a:after {
-    content: "";
-}
+
 /*print only banner */
 #bannerprint {
     display: block;
