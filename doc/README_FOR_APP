@@ -9,8 +9,10 @@ Created a new gemset: cms
 Installed rails 3.1.3 with cucumber-rails and rspec-rails
 Generated a new app:
     $ rails new cms -d postgresql -T --old-style-hash
-
-
+Installed RSpec stuff:
+    $ rails g rspec:install --old-style-hash
+Installed Cucumber stuff:
+    $ rails g cucumber:install --old-style-hash
 
 ################ HTML5 ######################
 
@@ -88,3 +90,49 @@ I can include the WYWIWYG editor javascript only on admin pages.
 
 ############# Authentication  ###############
 
+Looking at
+https://www.ruby-toolbox.com/categories/rails_authentication it seems
+that the usual options for authentication are Devise, Authlogic, and
+the old faithful, Restful Authentication. Looking at the LDAP
+category, there is already an extension for Devise, so let's start
+with that. It says you probably can't use it along side devise's
+database user storage - but I should be able to adapt that. 
+
+Devise is about to release a backwards incompatible 2.0 version. Since
+I don't have anything already in place, I don't see why I shouldn't
+just start with the new one and save myself the hassle of upgrading. I
+can't figure out Gemfile syntax to have it install devise 2.0.0.rc, so
+I just used: "gem install devise --pre" to do it by hand. Then "gem
+'devise'" in the Gemfile worked find (e.g. did not try to install
+devise 1.5.x). 
+
+
+$ gem install devise --pre
+$ rails g devise:install
+  Heeded the advise from the installer:
+  1. Set config.action_mailer.default_url_options in dev mode (even
+     though I am not planning to use :confirmable
+  2. Checked I had a root_url
+  3. Added notice and alert paragraphs to my application layout
+  4. For now, ignored the advise on config.assets.initialize_on_precompile
+
+$ rails g active_record:devise User --old-style-hash
+  Edited user model, migration file, and initializer file. 
+
+  Default options are: :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :trackable, :validatable
+
+  My options: :database_authenticatable, :recoverable, :trackable, :validatable
+	
+  Added a login field to the database migration and set a number of
+  configuration options to use it instead of email. 
+
+  Noticed that neither generator added routes to my routes file. Older
+  docs say that the devise generator should have added "devise_for
+  :users" to the routes file. Wonder if it isn't needed any longer
+  because Rails 3.1 has better engine support.
+
+$ rake db:migrate
+
+
+https://github.com/aanand/fakeldap

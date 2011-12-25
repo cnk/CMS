@@ -6,6 +6,10 @@ gem 'rails', '3.1.3'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'jquery-rails'
+gem 'rails-boilerplate'
+
+gem 'devise'
 
 
 # Gems used only for assets and not required
@@ -17,9 +21,6 @@ group :assets do
   # JavaScript executable - Google's V8 as a ruby gem
   gem 'therubyracer'
 end
-
-gem 'jquery-rails'
-gem 'rails-boilerplate'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.5'
