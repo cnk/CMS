@@ -98,6 +98,8 @@ category, there is already an extension for Devise, so let's start
 with that. It says you probably can't use it along side devise's
 database user storage - but I should be able to adapt that. 
 
+# Local authentication with Devise #
+
 Devise is about to release a backwards incompatible 2.0 version. Since
 I don't have anything already in place, I don't see why I shouldn't
 just start with the new one and save myself the hassle of upgrading. I
@@ -116,23 +118,49 @@ $ rails g devise:install
   3. Added notice and alert paragraphs to my application layout
   4. For now, ignored the advise on config.assets.initialize_on_precompile
 
-$ rails g active_record:devise User --old-style-hash
+$ rails g devise User --old-style-hash
   Edited user model, migration file, and initializer file. 
 
   Default options are: :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
 
-  My options: :database_authenticatable, :recoverable, :trackable, :validatable
+  My options: :database_authenticatable, :recoverable, :trackable
 	
   Added a login field to the database migration and set a number of
-  configuration options to use it instead of email. 
-
-  Noticed that neither generator added routes to my routes file. Older
-  docs say that the devise generator should have added "devise_for
-  :users" to the routes file. Wonder if it isn't needed any longer
-  because Rails 3.1 has better engine support.
+  configuration options to use it instead of email. Also added
+  first_name and last_name fields.
 
 $ rake db:migrate
+
+Users themselves can't sign up, so I can't just use Devise's
+"registerable". Instead I need admins to be able to add users. Since
+this is basic CRUD functionality, I wanted to use the scaffold
+generator - but I decided I would namespace all my admin controllers
+into /admin/. So I did: 
+
+$ rails g scaffold Admin::User 
+
+This did a lot of what I wanted it to do - except it created a model
+called admin_users, which I don't need. So I needed to go in and
+change all references to admin_user to just user. Then a number of my
+routes were looking for just "@user" (aka users_path(@user) and so
+didn't work. So I went in manually and added explicit routes to places
+that were trying to use implicit routing. Explicit routing would
+interfere with reusing form_for for new and edit. Fortunately, there
+is a way to add the name space without resorting to an explicit route:
+   <%= form_for [:admin, @user] do |f| %>
+
+Fixed up all the generated rspec tests - and then dried them up a
+little. 
+
+Looking at the Devise validation code, I decided that I was going to
+need conditional validation for local vs LDAP users soon. So I rolled
+my own (and added tests for it).
+
+
+
+
+
 
 
 https://github.com/aanand/fakeldap
