@@ -24,6 +24,43 @@ describe User do
     it { should_not allow_value(email).for(:email) }
   end
   
+  # Passowrd 
+  it "should require password and password_confirmation for a new user" do
+    user = Factory.build(:user, :password => nil, :password_confirmation => nil)
+    user.should_not be_valid
+    user.errors.messages.should include(:password => ["can't be blank"])
+  end
+
+  it "should be valid if password and password_confirmation match" do
+    user = Factory.build(:user, :password => "somepass", :password_confirmation => "somepass")
+    user.should be_valid
+  end
+  
+  it "should require that the password and password_confirmation match" do
+    user = Factory.build(:user, :password => "somepass", :password_confirmation => "passsome")
+    user.should_not be_valid
+    user.errors.messages.should include(:password => ["doesn't match confirmation"])
+  end
+
+  it "should require a password and password_confirmation for an existing user if we update either one" do
+    user = Factory.create(:user)
+    user.password = ""
+    user.password_confirmation = "somepass"
+    user.should_not be_valid
+    user.errors.messages.should include(:password=>["can't be blank", "doesn't match confirmation"])
+
+    user.password = "somepass"
+    user.password_confirmation = ""
+    user.should_not be_valid
+    user.errors.messages.should include(:password => ["doesn't match confirmation"])
+  end
+
+  it "should not require password fields if the user has been persisted" do
+    user = Factory.create(:user)
+    user.password = user.password_confirmation = nil
+    user.should be_valid
+    user.encrypted_password.should_not be_nil
+  end
 
   USER_FIELDS = %w(first_name last_name login email encrypted_password reset_password_token reset_password_sent_at sign_in_count current_sign_in_at last_sign_in_at current_sign_in_ip last_sign_in_ip password_salt failed_attempts locked_at created_at updated_at)
 
